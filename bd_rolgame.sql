@@ -47,6 +47,16 @@ CREATE TABLE `rolgame`.`batallas` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 	
+ALTER TABLE `rolgame`.`batallas` 
+CHANGE COLUMN `fecha` `fecha` DATETIME NOT NULL ;
+
+ALTER TABLE `rolgame`.`personajes` 
+CHANGE COLUMN `nivel` `nivel` INT NOT NULL DEFAULT 0 ,
+CHANGE COLUMN `experiencia` `experiencia` INT NOT NULL DEFAULT 0 ,
+CHANGE COLUMN `vida` `vida` INT NOT NULL DEFAULT 100 ;
+
+--////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
 INSERT INTO `rolgame`.`clases` (`nombre`) VALUES ('Guerrero');
 INSERT INTO `rolgame`.`clases` (`nombre`) VALUES ('Arquero');
 INSERT INTO `rolgame`.`clases` (`nombre`) VALUES ('Mago');
