@@ -110,8 +110,6 @@ VALUES(10,'MARIA EULALIA VELASQUEZ TORVISCO','SURCO','6573456','mvelasques@gmail
 INSERT INTO ALUMNO (alu_id, alu_nombre, alu_direccion, alu_telefono, alu_email )
 VALUES(11,'FIORELLA LIZET VITELLA REYES','SAN BORJA','5468790','fvitela@outlook.com');
 
-commit;
-
 
 -- ======================================================
 -- RESTRICCIONES DE LA TABLA CURSO
@@ -186,8 +184,6 @@ VALUES(8,'ORACLE DATABASE SQL',24,2600.0,'GUSTAVO CORONEL');
 
 INSERT INTO CURSO(CUR_ID,CUR_NOMBRE,CUR_VACANTES,CUR_PRECIO,CUR_PROFESOR)
 VALUES(9,'ORACLE DATABASE PL-SQL',24,2600.0,'GUSTAVO CORONEL');
-
-commit;
 
 
 -- ======================================================
@@ -264,9 +260,6 @@ BEGIN
 END;
 /
 
-
-commit;
-
 -- ======================================================
 -- Actualizar la columna matriculados en la tabla curso
 -- ======================================================
@@ -275,8 +268,6 @@ UPDATE CURSO
 SET cur_matriculados = (
 	SELECT COUNT(*) FROM MATRICULA
 	WHERE MATRICULA.cur_id = CURSO.cur_id );
-
-commit;	
 
 -- ======================================================
 -- RESTRICCIONES EN LA TABLA PAGO
@@ -322,19 +313,7 @@ BEGIN
 END;
 /
 
-commit;
-
---
-ALTER DATABASE DEFAULT TABLESPACE DESARROLLO;
-
-ALTER TABLE ALUMNO MOVE TABLESPACE DESARROLLO;
-ALTER TABLE CURSO MOVE TABLESPACE DESARROLLO;
-ALTER TABLE MATRICULA MOVE TABLESPACE DESARROLLO;
-ALTER TABLE PAGO MOVE TABLESPACE DESARROLLO;
-
 --######################################################################
-
-ALTER DATABASE DEFAULT TABLESPACE DESARROLLO;
 -- ==========================================================
 -- Crear la Tabla de Puestos de Trabajo: cargo
 -- ==========================================================
@@ -408,7 +387,7 @@ CREATE TABLE empleado (
 
 CREATE TABLE control (
     parametro   VARCHAR2(20) NOT NULL,
-    valor       VARCHAR2(20) NOT NULL,
+    valor       VARCHAR2(100) NOT NULL,
     CONSTRAINT pk_control PRIMARY KEY ( parametro )
 );
 
